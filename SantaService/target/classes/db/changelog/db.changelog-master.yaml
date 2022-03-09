@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file: db/changelog/changeset/initial-tables.yaml
+  - include:
+      file: db/changelog/changeset/insert-presents.yaml

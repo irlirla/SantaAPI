@@ -1,0 +1,23 @@
+databaseChangeLog:
+    - changeSet:
+        id: insert-presents
+        author: Alina
+        changes:
+          - insert:
+              tableName: presents
+              columns:
+                - column:
+                    name: type
+                    value: doll
+                - column:
+                    name: min_amount
+                    value: 3
+          - insert:
+              tableName: presents
+              columns:
+                - column:
+                    name: type
+                    value: car
+                - column:
+                    name: min_amount
+                    value: 4
