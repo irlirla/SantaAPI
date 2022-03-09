@@ -39,7 +39,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: present
+                  name: present_id
                   type: long
         - createTable:
             tableName: storage

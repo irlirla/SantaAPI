@@ -12,4 +12,6 @@ public interface IKidService {
     Kid getKidByFio(String fio);
 
     void attachPresent(String fio, Present present);
+
+    Boolean isKidRecorded(String fio);
 }

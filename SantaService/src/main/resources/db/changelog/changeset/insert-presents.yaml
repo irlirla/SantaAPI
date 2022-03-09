@@ -21,3 +21,21 @@ databaseChangeLog:
                 - column:
                     name: min_amount
                     value: 4
+          - insert:
+              tableName: storage
+              columns:
+                - column:
+                    name: present_id
+                    value: 1
+                - column:
+                    name: amount
+                    value: 6
+          - insert:
+              tableName: storage
+              columns:
+                - column:
+                    name: present_id
+                    value: 2
+                - column:
+                    name: amount
+                    value: 6

@@ -35,6 +35,9 @@ public class StorageService implements IStorageService {
         ensurePresentAmount(presentType);
         if (repository.findStorageInfoByType(presentType).getAmount() > 0) {
             Kid kid = kidService.getKidByFio(fio);
+            if (kid.getPresent() != null) {
+                throw new ApplicationException("Sorry, this kid already got a present!");
+            }
             reducePresentAmount(presentType);
             Boolean isKidGood = restTemplate.getForObject(behaviorURL + "?kidId={kidId}",
                     Boolean.class, Map.of("kidId", kid.getId()));

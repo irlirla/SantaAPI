@@ -16,7 +16,7 @@ public class KidService implements IKidService {
 
     @Override
     public void createKid(String fio) {
-        if (getKidByFio(fio) != null) {
+        if (isKidRecorded(fio)) {
             throw new ApplicationException("We already have a record with a kid named: " + fio);
         }
         Kid kid = new Kid();
@@ -48,5 +48,15 @@ public class KidService implements IKidService {
         Kid kid = getKidByFio(fio);
         kid.setPresent(present);
         repository.save(kid);
+    }
+
+    @Override
+    public Boolean isKidRecorded(String fio) {
+        Optional<Kid> kid = repository.findByFio(fio);
+        if (kid.isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

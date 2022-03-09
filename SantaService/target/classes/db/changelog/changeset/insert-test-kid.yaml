@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-test-kid
+      author: Alina
+      changes:
+        - insert:
+            tableName: kids
+            columns:
+              - column:
+                  name: fio
+                  value: Test
