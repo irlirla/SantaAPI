@@ -1,0 +1,63 @@
+databaseChangeLog:
+  - changeSet:
+      id: initial-tables
+      author: Alina
+      changes:
+        - createTable:
+            tableName: presents
+            columns:
+              - column:
+                  name: id
+                  type: long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: type
+                  type: varchar(30)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: min_amount
+                  type: int
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: kids
+            columns:
+              - column:
+                  name: id
+                  type: long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: fio
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: present
+                  type: long
+        - createTable:
+            tableName: storage
+            columns:
+              - column:
+                  name: id
+                  type: long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: present_id
+                  type: long
+                  constraints:
+                    nullable: false
+              - column:
+                  name: amount
+                  type: int
+                  constraints:
+                    nullable: false

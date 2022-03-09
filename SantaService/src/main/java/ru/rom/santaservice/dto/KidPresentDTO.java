@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class KidDTO {
+public class KidPresentDTO {
     private String fio;
+    private String presentType;
 }

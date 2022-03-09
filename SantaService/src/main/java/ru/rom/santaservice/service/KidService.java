@@ -15,10 +15,30 @@ public class KidService implements IKidService {
     private final IKidRepository repository;
 
     @Override
+    public void createKid(String fio) {
+        if (getKidByFio(fio) != null) {
+            throw new ApplicationException("We already have a record with a kid named: " + fio);
+        }
+        Kid kid = new Kid();
+        kid.setFio(fio);
+        repository.save(kid);
+    }
+
+    @Override
+    public void deleteKid(String fio) {
+        Optional<Kid> kid = repository.findByFio(fio);
+        if (kid.isEmpty()) {
+            throw new ApplicationException("In our records there is no kid named: " + fio);
+        }
+        repository.delete(kid.get());
+    }
+
+    @Override
     public Kid getKidByFio(String fio) {
         Optional<Kid> kid = repository.findByFio(fio);
         if (kid.isEmpty()) {
-            throw new ApplicationException("Kid with such fio was not found. fio: " + fio);
+            throw new ApplicationException("In our records there is no kid named: " + fio +
+                    ". Please, firstly add this kid name in the records.");
         }
         return kid.get();
     }

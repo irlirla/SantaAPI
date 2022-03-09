@@ -5,7 +5,6 @@ import lombok.Setter;
 import lombok.ToString;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
@@ -22,6 +21,7 @@ public class Kid {
     @Column(name = "fio", nullable = false)
     @NotEmpty(message = "Name and surname must not be empty!")
     @Size(min = 2, max = 50, message = "Please, enter name in size between 2 and 25 characters.")
+    @NotEmpty
     private String fio;
 
     @ManyToOne
